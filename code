@@ -56,7 +56,7 @@ def fatalError():
     GPIO.output(Led, GPIO.LOW)
     sleep(0.3)    
     
-    PIO.output(Led, GPIO.HIGH)
+    GPIO.output(Led, GPIO.HIGH)
     sleep(0.3)
     GPIO.output(Led, GPIO.LOW)
     sleep(0.3)
@@ -221,7 +221,7 @@ def activateMorse():
 
     if length > 12:
         error()
-        close()
+        #close()
 
     else:
         for letter in word:
