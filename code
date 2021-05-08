@@ -1,0 +1,324 @@
+from tkinter import *
+import RPi.GPIO as GPIO
+from time import *
+GPIO.setwarnings(False)
+import RPi.GPIO
+
+#GPIO.setmode(GPIO.BCM)
+RPi.GPIO.setmode(RPi.GPIO.BCM)
+Led = 19
+ErrorLed = 18
+GPIO.setup(Led, GPIO.OUT)
+GPIO.output(Led, GPIO.LOW)
+GPIO.setup(ErrorLed, GPIO.OUT)
+GPIO.output(ErrorLed, GPIO.LOW)
+win = Tk()
+win.title("Task 5.3D")
+
+def dit():
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+
+def dah():
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.9)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+
+def fatalError():
+    GPIO.output(ErrorLed, GPIO.HIGH)
+    
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.9)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.9)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.9)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)    
+    
+    PIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.HIGH)
+    sleep(0.3)
+    GPIO.output(Led, GPIO.LOW)
+    sleep(0.3)
+    
+    GPIO.output(ErrorLed, GPIO.LOW)
+    sleep(0.1)
+
+def a(coun):
+    dit()
+    dah()
+
+def b():
+    dah()
+    dit()
+    dit()
+    dit()
+
+def c():
+    dah()
+    dit()
+    dah()
+    dit()
+
+def d():
+    dah()
+    dit()
+    dit()
+
+def e():
+    dit()
+
+def f():
+    dit()
+    dit()
+    dah()
+    dit()
+
+def g():
+    dah()
+    dah()
+    dit()
+
+def h():
+    dit()
+    dit()
+    dit()
+    dit()
+
+def i():
+    dit()
+    dit()
+
+def j():
+    dit()
+    dah()
+    dah()
+    dah()
+
+def k():
+    dah()
+    dit()
+    dah()
+
+def l():
+    dit()
+    dah()
+    dit()
+    dit()
+
+def m():
+    dah()
+    dah()
+
+def n():
+    dah()
+    dit()
+
+def o():
+    dah()
+    dah()
+    dah()
+
+def p():
+    dit()
+    dah()
+    dah()
+    dit()
+
+def q():
+    dah()
+    dah()
+    dit()
+    dah()
+
+def r():
+    dit()
+    dah()
+    dit()
+
+def s():
+    dit()
+    dit()
+    dit()
+
+def t():
+    dah()
+
+def u():
+    dit()
+    dit()
+    dah()
+
+def v():
+    dit()
+    dit()
+    dit()
+    dah()
+
+def w():
+    dit()
+    dah()
+    dah()
+
+def x():
+    dah()
+    dit()
+    dit()
+    dah()
+
+def y():
+    dah()
+    dit()
+    dah()
+    dah()
+
+def z():
+    dah()
+    dah()
+    dit()
+    dit()
+    
+def error():
+    fatalError()
+
+def close():
+    win.destroy()
+    GPIO.cleanup
+
+def activateMorse():
+    word = entryBox.get()
+    length = len(word)
+    counter = 0
+    labelActive = False;
+
+    if length > 12:
+        error()
+        close()
+
+    else:
+        for letter in word:
+            if letter == "a":
+                a()
+                continue
+            elif letter == "b":
+                b()
+                continue
+            elif letter == "c":
+                c()
+                continue
+            elif letter == "d":
+                d()
+                continue
+            elif letter == "e":
+                e()
+                continue
+            elif letter == "f":
+                f()
+                continue
+            elif letter == "g":
+                g()
+                continue
+            elif letter == "h":
+                h()
+                continue
+            elif letter == "i":
+                i()
+                continue
+            elif letter == "j":
+                j()
+                continue
+            elif letter == "k":
+                k()
+                continue
+            elif letter == "l":
+                l()
+                continue
+            elif letter == "m":
+                m()
+                continue
+            elif letter == "n":
+                n()
+                continue
+            elif letter == "o":
+                o()
+                continue
+            elif letter == "p":
+                p()
+                continue
+            elif letter == "q":
+                q()
+                continue
+            elif letter == "r":
+                r()
+                continue
+            elif letter == "s":
+                s()
+                continue
+            elif letter == "t":
+                t()
+                continue
+            elif letter == "u":
+                u()
+                continue
+            elif letter == "v":
+                v()
+                continue
+            elif letter == "w":
+                w()
+                continue
+            elif letter == "x":
+                x()
+                continue
+            elif letter == "y":
+                y()
+                continue
+            elif letter == "z":
+                z()
+                continue
+            
+
+        
+        
+# widgets
+entryBoxLabel = Label(win, text = 'Text to Morse Code conversion')
+entryBoxLabel.grid(row = 0, column = 0)
+
+entryBox = Entry(win)
+entryBox.grid(row = 2, column = 0)
+
+submitButton = Button(win, text = "Submit", command = activateMorse)
+submitButton.grid(row = 4, column = 0)
+
+exitButton = Button(win, text = "Exit", command = close)
+exitButton.grid(row = 6, column = 0)
+
+win.protocol("WM_DELETE_WINDOW", close)
+win.mainloop()
