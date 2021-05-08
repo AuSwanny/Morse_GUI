@@ -213,7 +213,7 @@ def close():
     win.destroy()
     GPIO.cleanup
 
-def activateMorse():
+def Morse():
     word = entryBox.get()
     length = len(word)
     counter = 0
@@ -221,7 +221,6 @@ def activateMorse():
 
     if length > 12:
         error()
-        #close()
 
     else:
         for letter in word:
@@ -304,21 +303,17 @@ def activateMorse():
                 z()
                 continue
             
-
-        
-        
-# widgets
 entryBoxLabel = Label(win, text = 'Text to Morse Code conversion')
 entryBoxLabel.grid(row = 0, column = 0)
 
 entryBox = Entry(win)
 entryBox.grid(row = 2, column = 0)
 
-submitButton = Button(win, text = "Submit", command = activateMorse)
+submitButton = Button(win, text = "Convert", command = Morse)
 submitButton.grid(row = 4, column = 0)
 
-exitButton = Button(win, text = "Exit", command = close)
+exitButton = Button(win, text = "Close", command = close)
 exitButton.grid(row = 6, column = 0)
 
-win.protocol("WM_DELETE_WINDOW", close)
+win.protocol("remove", close)
 win.mainloop()
