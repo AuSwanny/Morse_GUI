@@ -72,7 +72,7 @@ def fatalError():
     GPIO.output(ErrorLed, GPIO.LOW)
     sleep(0.1)
 
-def a(coun):
+def a():
     dit()
     dah()
 
